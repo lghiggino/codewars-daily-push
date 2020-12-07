@@ -22,6 +22,9 @@ list([])
 */
 
 let array = [{name: 'Bart'},{name: 'Lisa'},{name: 'Maggie'},{name: 'Homer'},{name: 'Marge'}, {name: "Moe"}]
+let arrayOfTwo = [{name: 'Bart'},{name: 'Lisa'}];
+let arrayOfOne = [{name: 'Bart'}];
+let arrayOfZero = [];
 
 
 function list(array){
@@ -44,4 +47,14 @@ function list(array){
     } 
   }
 
-  list(array)
+//   list(array)
+
+//   This could be faster using a reduce or map lets see...
+
+function listMap(array){
+    let namesArray = array.map(o => o.name)
+    let namesString = namesArray.join(", ")
+    return namesString.replace(/(.*),(.*)$/, "$1 &$2")
+}
+
+listMap(array)
